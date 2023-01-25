@@ -1,0 +1,24 @@
+{
+    "name": "payload-cms-devspace",
+    "service": "dev",
+    "dockerComposeFile": "../docker/docker-compose.dev.local.yml",
+    "forwardPorts": [8081],
+    "workspaceFolder": "/workspace",
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"CoenraadS.bracket-pair-colorizer",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"PKief.material-icon-theme",
+				"ms-vscode.js-debug-nightly",
+				"alexkrechik.cucumberautocomplete"
+			]
+		}
+	},
+    	// Use 'postCreateCommand' to run commands after the container is created.
+	"postStartCommand": "sudo chmod a+x ./scripts/** && ./scripts/workspace-setup.sh"
+}

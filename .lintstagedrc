@@ -1,0 +1,10 @@
+{
+    "app/**/*.*": [
+        "prettier --config .prettierrc --list-different projects/app/**/**.* --ignore-unknown",
+        "eslint --config ./projects/app/.eslintrc --ignore-path ./.eslintignore --ext ts,tsx app"
+    ],
+    "e2e/**/*.*": [
+        "prettier --config .prettierrc --list-different projects/e2e/**/**.* --ignore-unknown",
+        "eslint --config ./projects/e2e/.eslintrc --ignore-path ./.eslintignore --ext ts e2e"
+    ]
+}

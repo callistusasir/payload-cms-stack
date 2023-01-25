@@ -1,0 +1,31 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "cy:open": "DISPLAY=:14 LIBGL_ALWAYS_INDIRECT=0 cypress open",
+    "cy:run": "cypress open --config video=false",
+    "cy:report": "cypress run report --config video=false",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run",
+    "test:e2e:report": "start-server-and-test develop http://localhost:8000 cy:report"
+  },
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "engines": {
+    "node": ">=18.7.0 <19",
+    "npm": ">=8.15.0 <9",
+    "yarn": "use npm!"
+  },
+  "dependencies": {
+    "cypress": "^10.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  }
+}

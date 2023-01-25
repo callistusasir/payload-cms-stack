@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  dev:
+    build:
+      context: ..
+      dockerfile: docker/local.dev.dockerfile
+      args:
+        VARIANT: 18-bullseye # The Variant of node that should be installed
+    command: sleep infinity
+    environment:
+      DISPLAY: ":14"
+      LIBGL_ALWAYS_INDIRECT: 0
+    volumes:
+      # This is where VS Code should expect to find your project's source code and the value of "workspaceFolder" in .devcontainer/devcontainer.json
+      - ..:/workspace:cached
+      - ${HOME}${USERPROFILE}/.ssh:/home/node/.ssh:cached
+    volumes_from:
+      - x11-bridge:rw
+    depends_on:
+      - x11-bridge
+
+  mongo:
+    image: mongo:5.0.9
+    environment:
+      - MONGO_INITDB_DATABASE=testdb
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=adminpass
+    volumes:
+      - mongodb:/data/db
+
+  x11-bridge: # https://github.com/JAremko/docker-x11-bridge
+    image: jare/x11-bridge
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+    ports:
+      - "8081:8081"
+    restart: always
+    environment:
+      MODE: tcp
+      XPRA_HTML: "yes"
+      DISPLAY: ":14"
+      XPRA_TCP_PORT: "8081"
+      XPRA_PASSWORD: password # This is the password when using XSPA
+
+volumes:
+  mongodb:

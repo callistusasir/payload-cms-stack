@@ -1,0 +1,71 @@
+# Ignore Node Modules Folders
+node_modules
+
+# Jest Coverage Outpots
+coverage
+
+# Core files gnerated during tests
+core.*
+
+# Ignore local @Types Defintions
+*.d.ts
+
+# ESLint Report Ouputs
+eslint-report
+
+# Build Folders
+build
+dist
+
+# Husky
+.husky
+
+# Nginx Files
+config
+
+# Bash scripts
+scripts
+
+# Docker
+.devcontainer
+docker
+.dockerignore
+
+# Ignore bash script files
+*.sh
+
+# Ignore yarn lock file because of the top file comment
+yarn.lock
+
+# Ignore HTML FIles
+*.html
+
+# Ignore SCSS files
+*.scss
+
+# Ignore PNG files
+*.png
+
+# Ignore SVG files
+*.svg
+
+# Ignore ICO files
+*.ico
+
+# Ignore Font Files
+*.ttc
+*.ttf
+
+# app specifics
+testAssertion.ts
+
+# Ignore Config Yarn, MPM & Typescript Files
+package-lock.json
+package.json
+
+# Do not lint TSConfig Files
+tsconfig.json
+tsconfig.*.json
+
+# Do no lint eslint file
+.eslintrc

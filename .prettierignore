@@ -1,0 +1,16 @@
+# Ignore Node Modules Folders
+node_modules
+
+# Jest Coverage Outputs
+coverage
+
+# Core files gnerated during tests
+core.*
+
+# ESLint Report Ouputs
+eslint-report
+
+# Build Folders
+build
+dist
+

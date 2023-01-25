@@ -1,0 +1,39 @@
+{
+    "env": {
+      "cypress/globals": true
+    },
+  
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "plugins": ["cypress"],
+    "rules": {
+      "no-unused-vars": "warn",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_"
+        }
+      ],
+      "no-console": [
+        "error",
+        {
+          "allow": ["error"]
+        }
+      ],
+      "@typescript-eslint/no-explicit-any": [
+        "off",
+        {
+          "ignoreRestArgs": true
+        }
+      ],
+      "@typescript-eslint/no-unsafe-assignment": "warn",
+      "@typescript-eslint/dot-notation": "warn",
+      "@typescript-eslint/comma-dangle": "off",
+      "quotes": "off",
+      "@typescript-eslint/quotes": "off"
+    }
+  }
+  
